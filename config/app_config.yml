@@ -4,5 +4,5 @@ development:
 
 
 production:
-  github_client_id: ac1b8996c330dbf0ddd
+  github_client_id: ac1b8996c330dbf0ddd7
   github_client_secret: 4c74f306a30efcabfd3784242de7fee8c8c8cd12
