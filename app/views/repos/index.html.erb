@@ -1,0 +1,46 @@
+
+ 
+
+<%#binding.pry%>
+
+          
+        
+        
+   
+     
+
+  <div class="container">
+    
+      
+      
+        
+          <%@repos.each do |key ,val|%>
+          
+           <div class="row">
+            <div class="col-md-6">
+            <div class="panel panel-primary">
+             
+                <div class="panel-heading">
+                  <h3 class="panel-title"><%="#{key}"%></h3>
+                  <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body">
+                   <%#binding.pry%>
+                    <% val.each do |x|%>
+                      <div class="col-md-6">
+                      <%= link_to "#{x["name"]}",repo_path(x["id"])%></br>
+                      </div>
+                    <%end%>
+                 
+                </div>
+              </div>
+            </div>
+           </div>
+          <%end%>  
+       
+     
+    </div>
+  </div>  
+  
+    
+    

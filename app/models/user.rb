@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :authentications
+  has_many :repos
 
   def self.from_omniauth(auth)
     #binding.pry

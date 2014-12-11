@@ -29,6 +29,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'pry'
+gem "github_api"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -27,6 +27,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.6)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.9)
     builder (3.2.2)
@@ -38,6 +39,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -49,6 +52,14 @@ GEM
     execjs (2.2.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    github_api (0.12.2)
+      addressable (~> 2.3)
+      descendants_tracker (~> 0.0.4)
+      faraday (~> 0.8, < 0.10)
+      hashie (>= 3.3)
+      multi_json (>= 1.7.5, < 2.0)
+      nokogiri (~> 1.6.3)
+      oauth2
     hashie (3.3.2)
     hike (1.2.3)
     i18n (0.6.11)
@@ -65,11 +76,14 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mini_portile (0.6.1)
     minitest (5.4.3)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     mysql2 (0.3.17)
+    nokogiri (1.6.5)
+      mini_portile (~> 0.6.0)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -158,6 +172,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
+  github_api
   jbuilder (~> 2.0)
   jquery-rails
   mysql2

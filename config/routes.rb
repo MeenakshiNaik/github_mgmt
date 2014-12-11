@@ -11,6 +11,10 @@ Rails.application.routes.draw do
  get '/auth/:provider/callback' => 'authentications#create'
  resources :authentications
  resources :homes
+ post "/payload" => "homes#payload"
+  resources :repos do
+    get :git_repo_list
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

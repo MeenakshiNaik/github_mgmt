@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205115738) do
+ActiveRecord::Schema.define(version: 20141210110853) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
@@ -19,6 +19,26 @@ ActiveRecord::Schema.define(version: 20141205115738) do
     t.string   "provider"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "repo_id"
+    t.string   "commit"
+    t.string   "commiter_name"
+    t.string   "commit_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "commit_message"
+  end
+
+  create_table "repos", force: true do |t|
+    t.string   "github_repo_name"
+    t.string   "github_repo"
+    t.integer  "github_repo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "github_repo_description"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|
