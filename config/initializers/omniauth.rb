@@ -2,6 +2,6 @@
 #binding.pry
 Rails.application.config.middleware.use OmniAuth::Builder do
 	OmniAuth.config.logger = Rails.logger
-  provider :github, APP_CONFIG['github_client_id'], APP_CONFIG['github_client_secret'],scope: "user,repo,gist"
+  provider :github, APP_CONFIG['github_client_id'], APP_CONFIG['github_client_secret'], provider_ignores_state: true ,scope: "user,repo,gist"
    #on_failure { |env| AuthenticationsController.action(:failure).call(env) }
 end
