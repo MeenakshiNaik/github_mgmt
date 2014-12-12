@@ -1,15 +1,5 @@
 
-		
-<div class="container">
-  <%= link_to "<span class='btn-label'><i class='glyphicon glyphicon-chevron-left'></i></span>Back".html_safe ,repos_path(),class:"btn btn-labeled btn-default" %>  
-	<div class="row">
-		 	
-		<div class="widget-header ">
-		<div class="col-md-12">
-      <h4><%= @repo.github_repo_name.humanize%> </h4><span><%= link_to "Github<span class='btn-label'><i class='glyphicon glyphicon-new-window'></i></span>".html_safe,@repo.github_repo%></span>
-
-
-        <div class="table-responsive">
+        <!-- <div class="table-responsive">
             <table id="mytable" class="table table-bordred table-striped">
               <thead>
 								<tr>
@@ -41,9 +31,40 @@
     				</table>
         </div>
             
-    </div>
+    </div> -->
+
+<%#= render :partial => "/repos/delete_modal"%>
+<div class="container">
+  <%= link_to "<span class='btn'><i class='glyphicon glyphicon-chevron-left'></i></span>Back".html_safe ,repos_path(),class:"btn btn-labeled btn-default" %>
+  <h4><%= @repo.github_repo_name.humanize%> </h4>
+    <span>
+      <%= link_to "Github<span class='btn-label'><i class='glyphicon glyphicon-new-window'></i></span>".html_safe,@repo.github_repo%>
+    </span>
+    <div class="row">
+      <%@user_wise_notifications.each do |key , val|%>
+          <div class="col-md-6">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                    <%= "#{key}"%>
+                    
+                      <%= "<span class='label label-success' style = 'font-size: 11px'>#{val.count} commit(s)</span>".html_safe%>
+                   
+                </h3>
+                <span class="pull-right clickable"><i class="glyphicon glyphicon-minus"></i></span>
+              </div>
+              <div class="panel-body">
+                <% val.each do |x|%>
+                  
+                    <%=  link_to "#{x["commit_message"]}",x["commit"]%></br>
+                  
+                  <%end%>
+              </div>
+            </div>
+          </div>
+    <%end%>
+  </div>
 </div>
-<%= render :partial => "/repos/delete_modal"%>
 
     
    

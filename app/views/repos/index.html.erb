@@ -1,24 +1,8 @@
-
- 
-
-<%#binding.pry%>
-
-          
-        
-        
-   
-     
-
-  <div class="container">
-    
-      
-      
-        
-          <%@repos.each do |key ,val|%>
-          
-           <div class="row">
+<div class="container">
+    <%@repos.each do |key ,val|%>
+          <div class="row">
             <div class="col-md-6">
-            <div class="panel panel-primary">
+              <div class="panel panel-primary">
              
                 <div class="panel-heading">
                   <h3 class="panel-title"><%="#{key}"%></h3>
@@ -31,16 +15,15 @@
                       <%= link_to "#{x["github_repo_name"]}",repo_path(x["id"])%></br>
                       </div>
                     <%end%>
-                 
                 </div>
               </div>
             </div>
-           </div>
-          <%end%>  
-       
-     
+          </div>
+       <%end%>   
     </div>
-  </div>  
+</div>
+
+  
   
     
     
