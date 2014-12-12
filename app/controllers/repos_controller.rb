@@ -18,7 +18,7 @@ class ReposController < ApplicationController
 
   def show
   	#binding.pry
-   @repo = Repo.find_by(github_repo_id: params["id"])
+   @repo = Repo.find_by(id: params["id"])
    @notification = Repo.fetch_notifications(@repo.id)
   end
 

@@ -12,11 +12,18 @@ class Repo < ActiveRecord::Base
       end
       user.repos << @new_repo
     end
-    @repo = @git_repos.group_by{|repo| repo["owner"]["login"]}
+    @repo = user.repos.group_by{|repo| repo.user.name}
+
 	end
 
 	def self.fetch_github_repo(user)
-		Github.repos.list user: user.name
+		#binding.pry
+		begin
+			Github.repos.list user: user.name
+		
+		rescue
+			user.repos
+		end
 	end
 
 	def self.fetch_notifications(repo_id)

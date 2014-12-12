@@ -28,7 +28,7 @@
                    <%#binding.pry%>
                     <% val.each do |x|%>
                       <div class="col-md-6">
-                      <%= link_to "#{x["name"]}",repo_path(x["id"])%></br>
+                      <%= link_to "#{x["github_repo_name"]}",repo_path(x["id"])%></br>
                       </div>
                     <%end%>
                  
