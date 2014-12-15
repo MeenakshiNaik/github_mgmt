@@ -15,7 +15,7 @@ class ReposController < ApplicationController
   end
  
   def project_commit_graph
-    binding.pry
+    #binding.pry
     @repo = current_user.repos
     @repo_wise_lables = []
     @repo_data = []
