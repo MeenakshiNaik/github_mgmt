@@ -37,13 +37,14 @@
           <div class = "panel-body">
             <ul class="nav nav-tabs nav-stacked">
              <%@notification.order(commit_date: :desc).each do |notification|%>
-                <li>
-                  
-                  <%= notification.commiter_name%>
-                  <%= Date.parse(notification.commit_date).strftime("%d %b %Y")%></br>
+                
+                  <%= notification.commiter_name%></br>
                   <%= link_to "#{notification.commit_message}",notification.commit%>
+                  <div style = 'float: right'>
+                    <%= Date.parse(notification.commit_date).strftime("%d %b %Y")%>
+                  </div>
+               </br></br>
                
-                </li>
              <%end%>
             </ul>
           </div>
