@@ -9,7 +9,7 @@
                   <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                 </div>
                 <div class="panel-body">
-                   <%binding.pry%>
+                   <%#binding.pry%>
                     <% repos.each do |repo|%>
                       <div class="col-md-6">
                       <%= link_to "#{repo.github_repo_name}",repo_path(repo.id)%></br>

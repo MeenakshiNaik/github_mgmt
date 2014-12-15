@@ -8,7 +8,7 @@ class ReposController < ApplicationController
 
   def show
   	#binding.pry
-   @repo = Repo.find_by(id: params["id"])
+    @repo = Repo.find(params[:id])
    @notification = Repo.fetch_notifications(@repo.id)
    @user_wise_notifications =  @notification.group_by{|x| x.commiter_name}
    
@@ -26,14 +26,4 @@ class ReposController < ApplicationController
     
   end
 
-=begin
-    def chart_data
-    hash = {}
-    @repo_wise_lables.each do|key|
-      hash[key] = 0
-    end 
-=end
-
-  
-  
 end
