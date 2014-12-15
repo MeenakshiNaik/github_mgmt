@@ -1,7 +1,8 @@
 class Repo < ActiveRecord::Base
 	belongs_to :user
 	has_many :notifications
-
+  validates :github_repo_name ,presence: true
+  validates :github_repo , presence: true
 	def self.create_repo(user)
 		#binding.pry
 		@git_repos = Repo.fetch_github_repo(user)

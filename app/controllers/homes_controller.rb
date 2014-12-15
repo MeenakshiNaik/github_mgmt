@@ -2,17 +2,9 @@ class HomesController < ApplicationController
 	
 	skip_before_action :verify_authenticity_token ,:only => [:payload]
 	def payload
-		#binding.pry
+		binding.pry
   	puts params
   	@repo = Repo.find_by(github_repo_id: params["repository"]["id"])
-
-=begin
-unless @repo.present?
-			@repo = Repo.create(github_repo_name: params["repository"]["name"],github_repo: params["repository"]["html_url"],github_repo_id: params["repository"]["id"] ,github_repo_description: params["repository"]["description"])
-      
-		end
-=end
-
 
   if params[:commits].present?
     params[:commits].each do |commit|

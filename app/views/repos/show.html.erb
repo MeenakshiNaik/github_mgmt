@@ -1,39 +1,4 @@
 
-        <!-- <div class="table-responsive">
-            <table id="mytable" class="table table-bordred table-striped">
-              <thead>
-								<tr>
-									<th><input type="checkbox" id="checkall" /></th>
-									<th>Committer</th>
-									<th>Commit</th>
-									<th>Message</th>
-									<th>Commit Date</th>
-									
-                  <th>Delete</th>
-									
-								</tr>
-							</thead>
-							<% @notification.each do |notification| %>
-								<tbody>
-									<tr>
-										<td><input type="checkbox" class="checkthis" /></td>
-										<td><%= notification.commiter_name%></td>
-										<td><%=notification.commit%></td>
-										<td><%= notification.commit_message.humanize%></td>
-										<td><%= notification.commit_date%></td>
-										
-    								<td>
-    									<p><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-    								</td>
-									</tr>
-								</tbody>
-							<%end%>
-    				</table>
-        </div>
-            
-    </div> -->
-
-<%#= render :partial => "/repos/delete_modal"%>
 <div class="container">
   <%= link_to "<span class='btn'><i class='glyphicon glyphicon-chevron-left'></i></span>Back".html_safe ,repos_path(),class:"btn btn-labeled btn-default" %>
   <h4><%= @repo.github_repo_name.humanize%> </h4>
@@ -41,30 +6,53 @@
       <%= link_to "Github<span class='btn-label'><i class='glyphicon glyphicon-new-window'></i></span>".html_safe,@repo.github_repo%>
     </span>
     <div class="row">
-      <%@user_wise_notifications.each do |key , val|%>
+      <div class="col-md-8">
+        <%@user_wise_notifications.each do |commiter_name , commits|%>
           <div class="col-md-6">
             <div class="panel panel-success">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                    <%= "#{key}"%>
+                    <%= "#{commiter_name}"%>
                     
-                      <%= "<span class='label label-success' style = 'font-size: 11px'>#{val.count} commit(s)</span>".html_safe%>
-                   
+                      <%= "<span class='label label-success' style = 'font-size: 11px'>#{commits.count} commit(s)</span>".html_safe%>
                 </h3>
                 <span class="pull-right clickable"><i class="glyphicon glyphicon-minus"></i></span>
               </div>
               <div class="panel-body">
-                <% val.each do |x|%>
+                <% commits.each do |commit|%>
                   
-                    <%=  link_to "#{x["commit_message"]}",x["commit"]%></br>
+                    <%=  link_to "#{commit["commit_message"]}",commit["commit"]%></br>
                   
                   <%end%>
               </div>
             </div>
           </div>
-    <%end%>
-  </div>
+        <%end%>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h3>Project Activities</h3>
+          </div>
+          <div class = "panel-body">
+            <ul class="nav nav-tabs nav-stacked">
+             <%@notification.order(commit_date: :desc).each do |notification|%>
+                <li>
+                  
+                  <%= notification.commiter_name%>
+                  <%= Date.parse(notification.commit_date).strftime("%d %b %Y")%></br>
+                  <%= link_to "#{notification.commit_message}",notification.commit%>
+               
+                </li>
+             <%end%>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
 
     
+
+
    
