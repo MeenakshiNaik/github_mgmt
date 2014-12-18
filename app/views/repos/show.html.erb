@@ -55,8 +55,8 @@
 	</div>
 </div>
 
-<script src="http://code.highcharts.com/highcharts.js"></script>
-<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script src="//code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/modules/exporting.js"></script>
 <script>
 	$(document).ready(function(){
 		user_wise_graph(<%= "#{@days_from_this_week}".html_safe%>,<%="#{@series_data.to_json}".html_safe%>)
