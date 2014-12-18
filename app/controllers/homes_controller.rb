@@ -2,7 +2,6 @@ class HomesController < ApplicationController
 
 	skip_before_action :verify_authenticity_token ,:only => [:payload]
 	def payload
-		binding.pry
 		puts params
 		@repo = Repo.find_by(github_repo_id: params["repository"]["id"])
 

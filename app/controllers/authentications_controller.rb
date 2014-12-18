@@ -1,6 +1,5 @@
 class AuthenticationsController < ApplicationController
 	def create
-		#binding.pry
 		auth = request.env["omniauth.auth"]
 		user = User.from_omniauth(auth)
 		sign_in(user)

@@ -6,7 +6,6 @@ class Repo < ActiveRecord::Base
 	validates :github_repo , presence: true
 
 	def self.create_or_retirve_github_repo(user)
-		binding.pry
 		git_repos = Repo.fetch_github_repo(user)
 		git_repos.each do |repo|
 			new_repo = Repo.find_by(github_repo_id: repo["id"])
