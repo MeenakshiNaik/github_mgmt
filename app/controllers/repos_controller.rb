@@ -9,7 +9,7 @@ class ReposController < ApplicationController
   def show
     @repo = Repo.find_by(github_repo_name: params["id"])
     @notifications = @repo.notifications
-    @days_from_this_week = (7.days.ago.to_date..Date.today).map{|d| d.strftime("%d%a%Y")} 
+    @days_from_this_week = (7.days.ago.to_date..Date.today).map{|d| d.strftime("%d%b%Y")} 
     @series_data = @repo.user_wise_commit_graph
     @user_wise_notifications =  @notifications.group_by{|x| x.commiter_name}
   end
