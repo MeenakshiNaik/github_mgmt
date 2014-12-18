@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141215110924) do
+ActiveRecord::Schema.define(version: 20141216064736) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20141215110924) do
     t.integer  "repo_id"
     t.string   "commit"
     t.string   "commiter_name"
-    t.string   "commit_date"
+    t.datetime "commit_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "commit_message"

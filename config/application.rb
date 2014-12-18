@@ -2,10 +2,10 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# Require the gems listed in Gemfile, including any gems
+# Rrequire 'gchart'equire the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-
+require 'gchart'
 module GithubManagement
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
