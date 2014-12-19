@@ -49,6 +49,6 @@ class Repo < ActiveRecord::Base
 
 	def self.project_commit_graph(user)
 		repos = user.repos
-		[{name: "commits", data: repos.map(&:notifications).map(&:count)}]
+		[repos.map(&:github_repo_name),[{name: "commits", data: repos.map(&:notifications).map(&:count)}]]
 	end
 end

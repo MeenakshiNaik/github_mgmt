@@ -3,8 +3,7 @@ class ReposController < ApplicationController
   def index
     @repos = Repo.create_or_retrive_github_repo(current_user)
     @user_repos = Repo.fetch_github_repo(current_user).group_by{|repo| repo["owner"]["login"]}
-    @label = @repos.map(&:name)
-    @project_series_data = Repo.project_commit_graph(current_user)
+    @label,@project_series_data = Repo.project_commit_graph(current_user)
   end
 
   def show
