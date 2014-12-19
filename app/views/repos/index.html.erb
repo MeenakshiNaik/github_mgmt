@@ -24,7 +24,7 @@
 </div>
 <script>
 	$(document).ready(function(){
-		user_wise_graph("Project Commits",<%= "#{@label}".html_safe%>,<%= "#{@project_series_data.to_json}".html_safe%>)
+		user_wise_graph("Project Commits",<%= "#{@label}".html_safe%>,<%="#{@project_series_data.to_json}".html_safe%>)
 	});
 </script>
 <script src="//code.highcharts.com/highcharts.js"></script>
