@@ -36,15 +36,19 @@ class Repo < ActiveRecord::Base
 			end
 		end
 		commiters_for_repo = self.notifications.map(&:commiter_name).uniq
-		commiter_wise_series_data = {}
-		commiters_for_repo.each do |commiter|
-			commiter_wise_series_data[commiter.to_s.intern] = days_hash.values.map{|commits| commits.select{|commit| commit.commiter_name == commiter}.count }
+		if commiters_for_repo.present?
+			commiter_wise_series_data = {}
+			commiters_for_repo.each do |commiter|
+				commiter_wise_series_data[commiter.to_s.intern] = days_hash.values.map{|commits| commits.select{|commit| commit.commiter_name == commiter}.count }
+			end
+			commiter_wise_series_data.map{|commiter_name , commits| ({name: commiter_name, data: commits})}
+		else
+			[{name: "No commits", data: [0,0,0,0,0,0,0,0]}]
 		end
-		commiter_wise_series_data.map{|commiter_name , commits| ({name: commiter_name, data: commits})}
 	end
 
 	def self.project_commit_graph(user)
 		repos = user.repos
-		[repos.map(&:github_repo_name),repos.map(&:notifications).map(&:count)]
+		[{name: "commits", data: repos.map(&:notifications).map(&:count)}]
 	end
 end

@@ -31,8 +31,6 @@ GEM
     arel (5.0.1.20140414130214)
     bcrypt (3.1.9)
     builder (3.2.2)
-    chart-js-rails (0.0.7)
-      railties (> 3.1)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -62,7 +60,6 @@ GEM
       multi_json (>= 1.7.5, < 2.0)
       nokogiri (~> 1.6.3)
       oauth2
-    googlecharts (1.6.10)
     hashie (3.3.2)
     hike (1.2.3)
     i18n (0.6.11)
@@ -178,11 +175,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  chart-js-rails
   coffee-rails (~> 4.0.0)
   devise
   github_api
-  googlecharts
   jbuilder (~> 2.0)
   jquery-rails
   omniauth

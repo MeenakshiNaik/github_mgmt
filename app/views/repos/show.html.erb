@@ -59,7 +59,7 @@
 <script src="//code.highcharts.com/modules/exporting.js"></script>
 <script>
 	$(document).ready(function(){
-		user_wise_graph(<%= "#{@days_from_this_week}".html_safe%>,<%="#{@series_data.to_json}".html_safe%>)
+		user_wise_graph("Weekly Commits By User",<%= "#{@days_from_this_week}".html_safe%>,<%="#{@series_data.to_json}".html_safe%>)
 	});
 </script>
 

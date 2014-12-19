@@ -13,30 +13,11 @@ $(document).ready(function () {
 	})//repo list
 });
 
-function chart(graph_label , graph_data){
-	data = {
 
-		labels : graph_label,
-		datasets : [
-		{
-			label: "My First dataset",
-			fillColor : "rgba(151,187,205,0.5)",
-			strokeColor : "rgba(151,187,205,1)",
-			pointColor : "rgba(151,187,205,1)",
-			scaleLineHeight: 6,
-			pointStrokeColor : "#fff",
-			data : graph_data
-		}
-		]
-	}
-	myNewChart = new Chart($("#canvas").get(0).getContext("2d")).Line(data)
-} // chart-js 
-
-
-function user_wise_graph(day_from_week , series_data){
+function user_wise_graph(chart_title ,day_from_week , series_data){
 	$('#container').highcharts({
 		title: {
-			text: 'Weekly Commits By Users',
+			text: chart_title,
 			x: -20 //center
 		},
 
