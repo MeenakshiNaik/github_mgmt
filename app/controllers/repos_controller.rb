@@ -2,7 +2,6 @@ class ReposController < ApplicationController
 
   def index
     @repos = Repo.create_or_retrive_github_repo(current_user)
-    @user_repos = Repo.fetch_github_repo(current_user).group_by{|repo| repo["owner"]["login"]}
     @label,@project_series_data = Repo.project_commit_graph(current_user)
   end
 
@@ -16,5 +15,6 @@ class ReposController < ApplicationController
     else
       render :file => "#{Rails.root}/public/404.html",  :status => 404
     end
+    
   end
 end

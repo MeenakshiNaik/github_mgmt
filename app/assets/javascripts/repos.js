@@ -11,6 +11,18 @@ $(document).ready(function () {
 			$this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
 		}
 	})//repo list
+
+	$(".commiter_name").click(function(e){
+    e.preventDefault();
+    var data_attr = $(this).attr("data-class");
+    
+		$(".commits").hide() 
+		$(".commiter_name").removeClass("active")
+    $(this).addClass('active')
+		$("div[data-name = "+data_attr+"]").show();
+	})//show page user wise commit
+	 
+  $(".commiter_name").first().trigger("click");
 });
 
 

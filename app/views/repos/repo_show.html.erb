@@ -1,12 +1,11 @@
-
 <div class = "container">
 	<%= link_to "<span class='btn' ><i class='glyphicon glyphicon-chevron-left'></i></span>Back".html_safe ,repos_path(),class: "back btn btn-labeled btn-default " %></br>
-
-	<span>
+	 
+		<span>
 		<%= link_to "#{image_tag('GitHub-Mark-64px.png',:width => '25px')}#{@repo.github_repo_name.humanize}".html_safe,@repo.github_repo ,class: "github_link" %>
 	</span>
-
-	<!-- user wise commit graph  -->
+	
+	<!-- graph  -->
 	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 	<div class="row border well">
 		<div class="col-md-4 ">
@@ -46,7 +45,6 @@
 		</div>
 	</div>
 </div>	
-
 <script src="//code.highcharts.com/highcharts.js"></script>
 <script src="//code.highcharts.com/modules/exporting.js"></script>
 <script>

@@ -3,138 +3,60 @@
     padding: 0 10px;
 }
 
-.clickable{
-    cursor: pointer;   
+
+.btn-labeled {margin: 1px;padding: 3px 5px;}
+.btn-default {
+    box-shadow: 5px 3px 0px rgba(0, 0, 0, 0.3);
 }
 
-.panel-heading span {
-	margin-top: -20px;
-	font-size: 15px;
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    z-index: 2;
+    color: #fff;
+    background-color: #CDD1D5;
+    border-color: #C0C2C3;
 }
-
-.table-bordered {
-border: 1px solid #dddddd;
-border-collapse: separate;
-border-left: 0;
--webkit-border-radius: 4px;
--moz-border-radius: 4px;
-border-radius: 4px;
+.row.border{
+    border: solid;
+    padding: 31px 34px;
+    border-radius: 8px;
+    border-color: gray;
+    margin: 52px;
 }
-
-.table {
-width: 100%;
-margin-bottom: 20px;
-background-color: transparent;
-border-collapse: collapse;
-border-spacing: 0;
-display: table;
+.note.col-md-4{
+    border-left: solid;
+    border-color: gray;
 }
-
-.widget.widget-table .table {
-margin-bottom: 0;
-border: none;
+.link{
+    color: #9F9FA0;
+    text-decoration: none;
 }
-
-.widget.widget-table .widget-content {
-padding: 0;
+.github_link{
+    color: #575A5C;
+    text-decoration: none;
 }
-
-.widget .widget-header + .widget-content {
-border-top: none;
--webkit-border-top-left-radius: 0;
--webkit-border-top-right-radius: 0;
--moz-border-radius-topleft: 0;
--moz-border-radius-topright: 0;
-border-top-left-radius: 0;
-border-top-right-radius: 0;
-}
-
-.widget .widget-content {
-padding: 20px 15px 15px;
-background: #FFF;
-border: 1px solid #D5D5D5;
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
-border-radius: 5px;
-}
-
-.widget .widget-header {
-position: relative;
-height: 40px;
-line-height: 40px;
-background: #E9E9E9;
-background: -moz-linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafafa), color-stop(100%, #e9e9e9));
-background: -webkit-linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
-background: -o-linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
-background: -ms-linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
-background: linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
-text-shadow: 0 1px 0 #fff;
-border-radius: 5px 5px 0 0;
-box-shadow: 0 2px 5px rgba(0,0,0,0.1),inset 0 1px 0 white,inset 0 -1px 0 rgba(255,255,255,0.7);
-border-bottom: 1px solid #bababa;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9');
--ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9')";
-border: 1px solid #D5D5D5;
--webkit-border-top-left-radius: 4px;
--webkit-border-top-right-radius: 4px;
--moz-border-radius-topleft: 4px;
--moz-border-radius-topright: 4px;
-border-top-left-radius: 4px;
-border-top-right-radius: 4px;
--webkit-background-clip: padding-box;
-}
-
-thead {
-display: table-header-group;
-vertical-align: middle;
-border-color: inherit;
-}
-
-.widget .widget-header h3 {
-top: 2px;
-position: relative;
-left: 10px;
-display: inline-block;
-margin-right: 3em;
-font-size: 14px;
-font-weight: 600;
-color: #555;
-line-height: 18px;
-text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-}
-
-.widget .widget-header [class^="icon-"], .widget .widget-header [class*=" icon-"] {
-display: inline-block;
-margin-left: 13px;
-margin-right: -2px;
-font-size: 16px;
-color: #555;
-vertical-align: middle;
-}
-
-
-
-.clickable
-{
-    cursor: pointer;
-}
-
-.clickable .glyphicon
-{
-    background: rgba(0, 0, 0, 0.15);
+.back.btn.btn-labeled.btn-default{
     display: inline-block;
-    padding: 6px 12px;
-    border-radius: 4px
+    padding: 0px 7px;
+    margin-bottom: 9px;
+    font-size: 14px;    font-weight: normal;
+    line-height: 1.428571;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
-.panel-heading span
-{
-    margin-top: -23px;
-    font-size: 15px;
-    margin-right: -9px;
-}
-a.clickable { color: inherit; }
-a.clickable:hover { text-decoration:none; }
+.thumbnail a > img {
 
-.btn-labeled {padding-top: 0;padding-bottom: 0;}
+width: 30px;
+float: left;
+padding: 4px;
+}
+

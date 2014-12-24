@@ -13,7 +13,7 @@ resources :authentications
 resources :homes
 post "/payload" => "homes#payload"
 resources :repos do
-	get :repos_graph
+	get :repo_show
 end
 
 # Example of regular route:
