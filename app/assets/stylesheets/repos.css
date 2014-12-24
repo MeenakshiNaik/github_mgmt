@@ -59,4 +59,7 @@ width: 30px;
 float: left;
 padding: 4px;
 }
+.thumbnail.repo{
+    background-color: cornsilk;
+}
 
