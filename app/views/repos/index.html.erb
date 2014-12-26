@@ -1,14 +1,26 @@
 <div classs="container">
 	<div class="row border">
-		<h4><%="#{current_user.name}"%></h4>
+		<div>
+			<div style = "float:left;">
+				<h4 class = "name"><%="#{current_user.name}"%></h4>
+			</div>
+			<div  class = 'form'>
+				<%= form_tag repos_path,:method => 'get' do %>
+	 				<div class="form-group  col-xs-2 ">
+	    			<%= text_field_tag :search, params[:search] ,:placeholder=>"Enter Repo Name"%>
+	  			</div>
+	    		<%= submit_tag "Search", :name => nil,:class => "btn btn-default search_btn" %>
+	     	<% end %>
+			</div>
+		</div>
+		<div style= "height:2px; clear:both; overflow:hidden"></div>
 		<%@repos.each do |repo|%>
 			<div class="col-sm-4 col-md-3">
 				<div class="thumbnail repo">
 					<div class="caption">
 
 						<%= link_to "#{image_tag('GitHub-Mark-64px.png')}#{repo.name}".html_safe,repo_path(repo.name) , class: "github_link" ,style: "line-height: 2;"%>
-						<p><%#= "#{repo.github_repo_description}"%></p>
-
+						<p><%= "#{repo.github_repo_description}"%></p>
 					</div>
 				</div>
 			</div>

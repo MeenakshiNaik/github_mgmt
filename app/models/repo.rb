@@ -51,4 +51,12 @@ class Repo < ActiveRecord::Base
 		repos = user.repos
 		[repos.map(&:github_repo_name),[{name: "commits", data: repos.map(&:notifications).map(&:count)}]]
 	end
+
+	def self.search(search , current_user)
+		if search.present?
+			Repo.create_or_retrive_github_repo(current_user).select{|repo| repo[:name] == "#{search}"}
+		else
+			Repo.create_or_retrive_github_repo(current_user)
+		end
+	end
 end

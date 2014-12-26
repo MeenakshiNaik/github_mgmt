@@ -62,4 +62,15 @@ padding: 4px;
 .thumbnail.repo{
     background-color: cornsilk;
 }
+.name{
+    display: inline;
+}
+.search_btn{
+    float:right;
+    height:25px; 
+    padding:2px;
+}
+.form{
+    float:right;height:30px;
+}
 
