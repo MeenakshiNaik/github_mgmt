@@ -54,7 +54,7 @@ class Repo < ActiveRecord::Base
 
 	def self.search(search , current_user)
 		if search.present?
-			Repo.create_or_retrive_github_repo(current_user).select{|repo| repo[:name] == "#{search}"}
+			Repo.create_or_retrive_github_repo(current_user).select{|repo| repo[:name].include?("#{search}")}
 		else
 			Repo.create_or_retrive_github_repo(current_user)
 		end

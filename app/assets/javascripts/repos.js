@@ -23,6 +23,7 @@ $(document).ready(function () {
 	})//show page user wise commit
 	 
   $(".commiter_name").first().trigger("click");
+
 });
 
 

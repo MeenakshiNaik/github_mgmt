@@ -64,7 +64,7 @@ padding: 4px;
 }
 
 /*search repo button*/
-.form-group {
+.form-group.search {
   float: right !important;
   transition: all 0.35s, border-radius 0s;
   width: 32px;
@@ -74,33 +74,33 @@ padding: 4px;
   border-radius: 25px;
   border: 1px solid #ccc;
 }
- .form-group input.form-control {
+ .form-group.search input.form-control {
   padding-right: 20px;
   border: 0 none;
   background: transparent;
   box-shadow: none;
   display:block;
 }
- .form-group input.form-control::-webkit-input-placeholder {
+ .form-group .search input.form-control::-webkit-input-placeholder {
   display: none;
 }
-.form-group input.form-control:-moz-placeholder {
+.form-group.search  input.form-control:-moz-placeholder {
   /* Firefox 18- */
   display: none;
 }
- .form-group input.form-control::-moz-placeholder {
+ .form-group.search input.form-control::-moz-placeholder {
   /* Firefox 19+ */
   display: none;
 }
- .form-group input.form-control:-ms-input-placeholder {
+ .form-group.search input.form-control:-ms-input-placeholder {
   display: none;
 }
-.form-group:hover,
- .form-group.hover {
+.form-group.search:hover,
+ .form-group.search.hover {
   width: 100%;
   border-radius: 4px 25px 25px 4px;
 }
-.form-group span.form-control-feedback {
+.form-group.search span.form-control-feedback {
   position: absolute;
   top: -1px;
   right: -2px;
@@ -113,4 +113,17 @@ padding: 4px;
   color: #3596e0;
   left: initial;
   font-size: 14px;
+}
+
+.nav > li > a {
+position: relative;
+padding: 10px 15px;
+color: #777;
+}
+
+.background{
+  /*background-image: url("github.png");
+   background-repeat: no-repeat;
+   background-position: center; */
+   background-color: #FFFFFF  ;
 }
