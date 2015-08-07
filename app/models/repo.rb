@@ -2,6 +2,7 @@ class Repo < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :notifications
+  has_many :webhooks
 	validates :github_repo_name ,presence: true
 	validates :github_repo , presence: true
 
@@ -23,34 +24,34 @@ class Repo < ActiveRecord::Base
 		end
 	end
 
-	def user_wise_commit_graph
-		days_from_this_week = (7.days.ago.to_date..Date.today).collect{|day| day} 
-		days_hash = {}
+	# def user_wise_commit_graph
+	# 	days_from_this_week = (7.days.ago.to_date..Date.today).collect{|day| day} 
+	# 	days_hash = {}
 		
-		days_from_this_week.inject([]){|key ,day| days_hash[day] = []}
+	# 	days_from_this_week.inject([]){|key ,day| days_hash[day] = []}
 
-		day_wise_commit = self.notifications.group_by{|commit| commit.commit_date.to_date} 
-		days_hash.each_key do |day_name|
-			day_wise_commit.each do |day , commit|
-				days_hash[day_name] = commit if day == day_name
-			end
-		end
-		commiters_for_repo = self.notifications.map(&:commiter_name).uniq
-		if commiters_for_repo.present?
-			commiter_wise_series_data = {}
-			commiters_for_repo.each do |commiter|
-				commiter_wise_series_data[commiter.to_s.intern] = days_hash.values.map{|commits| commits.select{|commit| commit.commiter_name == commiter}.count }
-			end
-			commiter_wise_series_data.map{|commiter_name , commits| ({name: commiter_name, data: commits})}
-		else
-			[{name: "No commits", data: [0,0,0,0,0,0,0,0]}]
-		end
-	end
+	# 	day_wise_commit = self.notifications.group_by{|commit| commit.commit_date.to_date} 
+	# 	days_hash.each_key do |day_name|
+	# 		day_wise_commit.each do |day , commit|
+	# 			days_hash[day_name] = commit if day == day_name
+	# 		end
+	# 	end
+	# 	commiters_for_repo = self.notifications.map(&:commiter_name).uniq
+	# 	if commiters_for_repo.present?
+	# 		commiter_wise_series_data = {}
+	# 		commiters_for_repo.each do |commiter|
+	# 			commiter_wise_series_data[commiter.to_s.intern] = days_hash.values.map{|commits| commits.select{|commit| commit.commiter_name == commiter}.count }
+	# 		end
+	# 		commiter_wise_series_data.map{|commiter_name , commits| ({name: commiter_name, data: commits})}
+	# 	else
+	# 		[{name: "No commits", data: [0,0,0,0,0,0,0,0]}]
+	# 	end
+	# end
 
-	def self.project_commit_graph(user)
-		repos = user.repos
-		[repos.map(&:github_repo_name),[{name: "commits", data: repos.map(&:notifications).map(&:count)}]]
-	end
+	# def self.project_commit_graph(user)
+	# 	repos = user.repos
+	# 	[repos.map(&:github_repo_name),[{name: "commits", data: repos.map(&:notifications).map(&:count)}]]
+	# end
 
 	def self.search(search , current_user)
 		if search.present?

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  repo_id: MyString
+  integer: MyString
+  hook_id: 1
+  name: MyString
+  hook_url: MyString
+
+two:
+  repo_id: MyString
+  integer: MyString
+  hook_id: 1
+  name: MyString
+  hook_url: MyString
