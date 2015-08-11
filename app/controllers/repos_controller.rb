@@ -24,7 +24,7 @@ class ReposController < ApplicationController
     hook = github.repos.hooks.create current_user.name, @repo.github_repo_name,
     name: "web",
     active: true,
-    events: ['push', 'pull-request'],
+    events: ['push', 'pull_request'],
     config: {
       url: "http://localhost:3000/payload",
       content_type: "json"
