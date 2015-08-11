@@ -13,8 +13,9 @@ default: &default
   adapter: postgresql
   encoding: utf8
   pool: 5
-  username: test2
-  password: test123
+  username: dell_laptop
+  password: password
+  host: localhost
 development:
   <<: *default
   database: Github_management_development
