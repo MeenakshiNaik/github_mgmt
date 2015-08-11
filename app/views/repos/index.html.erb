@@ -41,7 +41,6 @@
         <tr>
            <td><%= link_to "#{repo.name}".html_safe,repo_path(repo.name) , class: "github_link" ,style: "line-height: 2;"%></td>
           <td><%= link_to "Active",active_repo_path(id: repo.id),:method => :post%></td>
-          <!-- <td><%= link_to "Deactivate", deactivate_repo_webhook_path(repo_id: repo.id ,id: repo.webhooks.first.hook_id),:method => :delete %></td> -->
         </tr>
       </tbody>
   <%end%>
