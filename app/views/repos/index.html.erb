@@ -34,6 +34,7 @@
       <tr>
         <th>Repo Name</th>
         <th>Webhook</th>
+        <th>Commits</th>
       </tr>
     </thead>
     <%@repos.each do |repo|%>
@@ -41,6 +42,7 @@
         <tr>
            <td><%= link_to "#{repo.name}".html_safe,repo_path(repo.name) , class: "github_link" ,style: "line-height: 2;"%></td>
           <td><%= link_to "Active",active_repo_path(id: repo.id),:method => :post%></td>
+          <td><%= link_to "Commit list", list_repo_path(id: repo.id), :method => :get%></td>
         </tr>
       </tbody>
   <%end%>

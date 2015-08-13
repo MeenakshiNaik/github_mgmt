@@ -7,7 +7,6 @@ has_many :authentications
 has_many :repos
 
   def self.from_omniauth(auth)
-    binding.pry
     password = Devise.friendly_token.first(8)
     user = User.find_by(email: auth["info"]["email"])
     unless user.present?

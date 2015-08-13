@@ -9,16 +9,6 @@
 	<!-- user wise commit graph  -->
 	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 	<div class="row border well">
-		<div class="col-md-4 ">
-			<h4>Commiter</h4>
-			<div class="list-group">
-				<%@user_wise_notifications.each do |commiter_name ,commits|%>
-
-					<%= link_to "#{commiter_name}" , "#" , 'data-class'=> "#{commiter_name}" ,class: "commiter_name list-group-item"%>
-				<%end%>
-			</div>
-		</div>
-
 		<div class="col-md-4" >
 			<h4>Commits</h4>
 			<%@user_wise_notifications.each do |commiter_name , commits |%>

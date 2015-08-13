@@ -3,7 +3,6 @@ class ReposController < ApplicationController
   
   def index
     @repos = Repo.search(params[:search],current_user)
-    # @label,@project_series_data = Repo.project_commit_graph(current_user)
   end
 
   def show
@@ -11,7 +10,6 @@ class ReposController < ApplicationController
     if @repo.present?
       @notifications = @repo.notifications
       @days_from_this_week = (7.days.ago.to_date..Date.today).map{|d| d.strftime("%d%b%Y")} 
-      # @series_data = @repo.user_wise_commit_graph
       @user_wise_notifications =  @notifications.group_by{|commiter| commiter.commiter_name}
     else
       render :file => "#{Rails.root}/public/404.html",  :status => 404
@@ -36,18 +34,23 @@ class ReposController < ApplicationController
       render :index
     end
   end
+
+  def list
+    @repo = Repo.find_by(github_repo_id: params["id"])
+    @notifications = @repo.notifications
+    @days_from_this_week = (7.days.ago.to_date..Date.today).map{|d| d.strftime("%d%b%Y")} 
+    @user_wise_notifications =  @notifications.group_by{|commiter| commiter.commiter_name}
+    github = Github.new oauth_token: current_user.oauth_token    
+    # binding.pry
+    @hook_commits = github.repos.commits.list current_user.name, @repo.github_repo_name
+    if @hook_commits.present?
+      # binding.pry
+    else
+      render :file => "#{Rails.root}/public/404.html",  :status => 404
+    end
+  end
  
   # def deactivate
   #   binding.pry
   # end
 end
-
-# github = Github.new
-# github.repos.hooks.create 'Archana-p', 'Youtube',
-# name:  "web",
-# active: true,
-# events: ['push','pull-request'],
-# config: {
-# url: "http://localhost:3000/payload",
-# content_type: "json"
-# }

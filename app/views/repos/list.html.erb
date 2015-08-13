@@ -1,0 +1,33 @@
+
+<div class = "container">
+	<%= link_to "<span class='btn' ><i class='glyphicon glyphicon-chevron-left'></i></span>Back".html_safe ,repos_path(),class: "back btn btn-labeled btn-default " %></br>
+
+	<span>
+		<%= link_to "#{image_tag('GitHub-Mark-64px.png',:width => '25px')}#{@repo.github_repo_name.humanize}".html_safe,@repo.github_repo ,class: "github_link" %>
+	</span>
+
+	<div class="row border well">
+		<div class="col-md-4 ">
+			<h4>Commiter</h4>
+			<div class="list-group">
+				<%@user_wise_notifications.each do |commiter_name ,commits|%>
+          <!-- binding.pry -->
+					<%= link_to "#{@hook_commits["commit"]["author"]["name"]}" , "#" , 'data-class'=> "#{commiter_name}" ,class: "commiter_name list-group-item"%>
+				<%end%>
+			</div>
+		</div>
+
+		<div class="col-md-4" >
+      <h4>Commits</h4>
+      <%@hook_commits.each do |commits|%>
+        <div class = "commits list-group" data-name = <%=commits["commit"]["author"]["name"]%>  >
+            <%=  link_to "#{commits["commit"]["message"]}", class: "list-group-item", 'data-toggle' =>"tooltip" ,'data-placement'=>"bottom" , 'title'=>"Click Here To View Commit"%>
+        </div>
+      <%end%>
+    </div>
+
+
+
+	</div>
+</div>	
+

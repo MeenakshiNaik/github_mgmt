@@ -14,8 +14,10 @@ Rails.application.routes.draw do
   post "/payload" => "homes#payload"
   resources :repos do
     get :repo_show
+    
     member do
       post :active
+      get :list
     end
   resources :webhook do
     member do

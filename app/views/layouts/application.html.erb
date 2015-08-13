@@ -27,7 +27,7 @@
 
 				<div class="pull-right">
           <ul class="nav pull-right">
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Welcome,<%=current_user.name%> <b class="caret"></b></a>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Welcome <%=current_user.name%><b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li>
                 	<%= link_to "<i class='glyphicon glyphicon-off'></i>log out".html_safe ,destroy_user_session_path,:method => "delete"%> 
